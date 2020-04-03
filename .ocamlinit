@@ -1,0 +1,6 @@
+#require "oUnit";;
+#require "yojson";;
+#require "ANSITerminal";;
+#directory "_build";;
+#load "ticTacToe.cmo";;
+#load "minimax.cmo";;
