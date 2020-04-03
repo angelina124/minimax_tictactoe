@@ -4,7 +4,7 @@ ocamlfind ocamldep -modules main.mli > main.mli.depends # cached
 # Target: main.cmi, tags: { byte, compile, extension:mli, file:main.mli, interf, ocaml, quiet }
 ocamlfind ocamlc -c -o main.cmi main.mli # cached
 # Target: main.ml.depends, tags: { extension:ml, file:main.ml, ocaml, ocamldep, quiet }
-ocamlfind ocamldep -modules main.ml > main.ml.depends
+ocamlfind ocamldep -modules main.ml > main.ml.depends # cached
 # Target: minimax.mli.depends, tags: { extension:mli, file:minimax.mli, ocaml, ocamldep, quiet }
 ocamlfind ocamldep -modules minimax.mli > minimax.mli.depends # cached
 # Target: ticTacToe.mli.depends, tags: { extension:mli, file:ticTacToe.mli, ocaml, ocamldep, quiet }
@@ -14,7 +14,7 @@ ocamlfind ocamlc -c -o ticTacToe.cmi ticTacToe.mli # cached
 # Target: minimax.cmi, tags: { byte, compile, extension:mli, file:minimax.mli, interf, ocaml, quiet }
 ocamlfind ocamlc -c -o minimax.cmi minimax.mli # cached
 # Target: main.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:main.cmo, file:main.ml, implem, ocaml, quiet }
-ocamlfind ocamlc -c -o main.cmo main.ml
+ocamlfind ocamlc -c -o main.cmo main.ml # cached
 # Target: minimax.ml.depends, tags: { extension:ml, file:minimax.ml, ocaml, ocamldep, quiet }
 ocamlfind ocamldep -modules minimax.ml > minimax.ml.depends # cached
 # Target: minimax.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:minimax.cmo, file:minimax.ml, implem, ocaml, quiet }
@@ -24,5 +24,5 @@ ocamlfind ocamldep -modules ticTacToe.ml > ticTacToe.ml.depends # cached
 # Target: ticTacToe.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:ticTacToe.cmo, file:ticTacToe.ml, implem, ocaml, quiet }
 ocamlfind ocamlc -c -o ticTacToe.cmo ticTacToe.ml # cached
 # Target: main.byte, tags: { byte, dont_link_with, extension:byte, file:main.byte, link, ocaml, program, quiet }
-ocamlfind ocamlc -linkpkg ticTacToe.cmo minimax.cmo main.cmo -o main.byte
+ocamlfind ocamlc -linkpkg ticTacToe.cmo minimax.cmo main.cmo -o main.byte # cached
 # Compilation successful.

@@ -59,12 +59,12 @@ let end_game game (tie:bool) : unit = begin
 end
 
 
-let rec play_move game : unit = begin
+let rec play_move (play_computer:bool) game: unit = begin
   print_board game;
   if filled_squares game = 9 then
     end_game game true 
   else begin
-    let coords = if whose_turn game = "Player 2" then 
+    let coords = if whose_turn game = "Player 2" && play_computer then 
         play_optimal_move game 
       else get_coords game in 
     begin
@@ -73,12 +73,12 @@ let rec play_move game : unit = begin
       | exception InvalidMove -> begin
           print_endline "Oops! That was an invalid move! \n
 Perhaps the square was already taken?"; 
-          play_move game;
+          play_move play_computer game;
         end
       | updated_game -> begin
           let did_win = win_board updated_game in
           if did_win then end_game updated_game false else
-            play_move updated_game
+            play_move play_computer updated_game
         end
     end
   end
@@ -90,7 +90,10 @@ let play_game (should_quit:bool) (game:TicTacToe.t) =
   else begin
     print_endline "Welcome to my awesome tic tac toe game!!";
     print_endline "The top left corner is at coordinates (0,0) btw";
-    play_move game;
+    print_endline "Enter 1 for multiplayer, 2 for playing the computer";
+    let ans = read_line() in
+    let play_computer = if ans = "2" then true else false in
+    play_move play_computer game;
   end
 
 let () = play_game_ref := play_game
